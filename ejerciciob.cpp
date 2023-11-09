@@ -1,3 +1,10 @@
+/*
+Nombre del archivo: mi_programa.c
+Autor: Tu Nombre
+Fecha de creación: 12 de septiembre de 2023
+Descripción: Este codigo me da a escoger entre varios puntos de los cuales cada uno hace algo distinto y van desde ordenar a sumas y restas
+*/
+
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
@@ -19,8 +26,8 @@ int main(int argc, char *argv[])
         printf("a) Argumentos en la Línea de Comandos\n");
         printf("b) Ordenación de Palabras\n");
         printf("c) Matriz Multidimensional\n");
-        op = getch();
-        op = tolower(op);
+        op = getch(); // lee pero se asegura de que sean los datos que se piden
+        op = tolower(op); //convierte a minuscula
         if (isalpha(op))
         {
             printf("%c", op);
@@ -40,7 +47,7 @@ int main(int argc, char *argv[])
                 ordenarPalabras(palabras, n);
 
                 printf("\nPalabras ordenadas alfabéticamente:\n");
-                for (int i = 0; i < n; i++) 
+                for (int i = 0; i < n; i++) //imprime las palabras
                 {
                     printf("%s\n", palabras[i]);
                 }
@@ -48,7 +55,7 @@ int main(int argc, char *argv[])
             }
             else
             {
-                if (op == 'c')
+                if (op == 'c') //me da una matriz para luego sumar sus elementtos
                 {
                     printf("\n\n");
                     int matriz[3][3] = 
@@ -65,16 +72,16 @@ int main(int argc, char *argv[])
 
                     int *ptr = &matriz[0][0];
 
-                    for (int fila = 0; fila < 3; fila++) 
+                    for (int i = 0; i < 3; i++) 
                     {
-                        for (int columna = 0; columna < 3; columna++) 
+                        for (int j = 0; j < 3; j++) 
                         {
                             suma += *ptr; 
                             if (*ptr > max_valor) 
                             {
                                 max_valor = *ptr;
-                                fila_max = fila;
-                                columna_max = columna;
+                                fila_max = i;
+                                columna_max = j;
                             }
                     ptr++; 
                         }
@@ -96,7 +103,7 @@ int main(int argc, char *argv[])
     
 }
 
-void ordenarPalabras(char *palabras[], int n) 
+void ordenarPalabras(char *palabras[], int n)  //ordena las palabras del punto b
 {
     int i, j;
     char *temp;
@@ -114,7 +121,7 @@ void ordenarPalabras(char *palabras[], int n)
     }
 }
 
-void puntoa(int argc, char **argv)
+void puntoa(int argc, char **argv) //hace operaciones con los numeros que le demos en la consola
 {
     if (argc != 3) 
     {
